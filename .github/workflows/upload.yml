@@ -30,12 +30,11 @@ jobs:
         run: ./gradlew clean build -x test
 
       - name: Rename jar
-        run: mv ./build/libs/${{PROJECT_NAME}}-1.0-SNAPSHOT-all.jar ./build/libs/${{PROJECT_NAME}}_${{ github.event.release.tag_name }}.jar
+        run: mv ./build/libs/${{ env.PROJECT_NAME }}-1.0-SNAPSHOT-all.jar ./build/libs/${{ env.PROJECT_NAME }}_${{ github.event.release.tag_name }}.jar
 
       - name: Upload release
         uses: softprops/action-gh-release@v2
         with:
-          files: ./build/libs/${{PROJECT_NAME}}_${{ github.event.release.tag_name }}.jar
+          files: ./build/libs/${{ env.PROJECT_NAME }}_${{ github.event.release.tag_name }}.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

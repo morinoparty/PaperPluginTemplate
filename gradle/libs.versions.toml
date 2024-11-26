@@ -1,0 +1,22 @@
+[versions]
+paper = "1.21.3-R0.1-SNAPSHOT"
+cloud = "2.1.0-SNAPSHOT"
+cloudPaper = "2.0.0-SNAPSHOT"
+guice = "7.0.0"
+configurate = "4.1.2"
+
+[libraries]
+paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
+cloud = { module = "org.incendo:cloud-core", version.ref = "cloud" }
+cloud-annotations = { module = "org.incendo:cloud-annotations", version.ref = "cloud" }
+cloudPaper = { module = "org.incendo:cloud-paper", version.ref = "cloudPaper" }
+guice = { group = "com.google.inject", name = "guice", version.ref = "guice" }
+configurate = { group = "org.spongepowered", name = "configurate-hocon", version.ref = "configurate" }
+
+[plugins]
+run-paper = { id = "xyz.jpenilla.run-paper", version = "2.3.1" }
+plugin-yml = { id = "net.minecrell.plugin-yml.paper", version = "0.6.0" }
+shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
+
+[bundles]
+commands = ["cloud", "cloudPaper", "cloud-annotations"]
